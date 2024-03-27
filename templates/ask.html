@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Analyse CROP</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+  
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Desaturated-Red: hsl(168, 76%, 36%); 
+  --Soft-Red: hsl(177, 72%, 37%);
+  --Blue: hsl(235, 41%, 25%);
+  --Dark-Grayish-Red: hsl(0, 6%, 24%);
+  --gradient-1: linear-gradient(135deg, hsl(116, 76%, 87%), hsl(170, 97%, 40%));
+  --gradient-2: linear-gradient(135deg, hsl(116, 76%, 87%), hsl(170, 97%, 40%));
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-bold: 600;
+
+  font: 400 16px "Josefin Sans", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: url();
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 250px 1fr;
+  align-items: center;
+}
+
+.header {
+  padding-left: 24px;
+}
+
+.logo {
+  height: 24px;
+}
+
+.hero {
+  width: 100%;
+  height: 250px;
+  background: url(https://img.freepik.com/free-vector/rice-field-concept-illustration_114360-12150.jpg?w=740&t=st=1711193181~exp=1711193781~hmac=b336a72eaa001d6e4c6254469bd584d9253292384a7141965fca2b47c59cb7e4);
+}
+
+.main {
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.title {
+  max-width: 500px;
+  margin-bottom: 20px;
+  color: var(--Dark-Grayish-Red);
+  font-size: clamp(3.5rem, 10vw, 5rem);
+  font-weight: var(--fw-bold);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+
+.desaturate {
+  color: var(--Desaturated-Red);
+  font-weight: var(--fw-light);
+  display: block;
+}
+
+.paragraph {
+  margin-bottom: 20px;
+  color: var(--Desaturated-Red);
+  text-align: center;
+  line-height: 1.5rem;
+}
+.paragraph-2{
+  margin-bottom: 20px;
+  color: var(--Blue);
+  text-align: center;
+  line-height: 1.5rem;
+}
+.form {
+  position: relative;
+  height: 50px;
+  margin-bottom: 8px;
+  border: 2px solid var(--Desaturated-Red);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form:focus-within {
+  border: 2px solid var(--Soft-Red);
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 50px;
+  padding-left: 20px;
+  font-size: 16px;
+  font-weight: var(--fw-light);
+  color: var(--Dark-Grayish-Red);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--Desaturated-Red);
+  font-weight: var(--fw-light);
+}
+
+.input:focus::placeholder {
+  color: var(--Soft-Red);
+  font-weight: var(--fw-light);
+}
+
+.icon-error {
+  position: absolute;
+  top: 25px;
+  right: 100px;
+  transform: translate(0, -50%);
+  position: absolute;
+  color: var(--Soft-Green);
+  display: none;
+}
+
+.form:invalid .icon-error {
+  display: block;
+}
+
+.form:invalid + .error {
+  display: block;
+}
+
+.button {
+  position: relative;
+  right: -2px;
+  width: 100px;
+  height: calc(100% + 4px);
+  background: var(--gradient-1);
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0px 10px 20px -10px var(--Soft-Red);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: var(--gradient-1);
+  transform: scale(1.1);
+}
+
+.error {
+  margin-top: 12px;
+  padding: 0 24px;
+  color: var(--Desaturated-Red);
+  font-size: 0.8rem;
+  display: none;
+}
+
+.hidden-acs {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+}
+
+@media (min-width: 500px) {
+  body {
+    grid-template-columns: minmax(55%, 45%) 1fr;
+    grid-template-rows: 80px 1fr;
+  }
+
+  .main {
+    grid-area: 1 / 2 / 3 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 100px;
+  }
+
+ .hero {
+  background: url('https://img.freepik.com/free-vector/farmer-family-concept-illustration_114360-19522.jpg?w=996&t=st=1711190980~exp=1711191580~hmac=256ad73bd7b2164054f456bd3392afd6d6aa0fb9be54d0d8691ae456694863e0') no-repeat center center;
+  background-size: cover; 
+  min-height: 80vh; 
+}
+
+  .title {
+    text-align: left;
+  }
+
+  .paragraph,
+  .paragraph-2 {
+    text-align: left;
+  }
+}
+@media (max-width: 500px) { 
+  body {
+    grid-template-rows: 80px auto 1fr; 
+  }
+  .hero {
+    background: none;
+    height: 0; 
+    padding: 0; 
+    overflow: hidden;
+  }
+}
+</style>
+
+<body>
+<!-- partial:index.partial.html -->
+<header class="header">
+  {% include "navbar.html" %}
+</header>
+<div class="hero"></div>
+<main class="main">
+  <h1 class="title">
+    <span class="desaturate">Know </span>
+    Your crop
+  </h1>
+  <p class="paragraph">Ready to uncover the secrets of successful farming? Just drop the name of your crop into the box below, and voila! I'll unveil its ideal growing conditions faster than you can say 'bountiful harvest'.</p>
+  <p class="paragraph-2">Let's dive into the world of agriculture together – one crop at a time!</p>
+  <form action="{{url_for('ask')}}" method="post" class="form">
+    <input type="text" placeholder="Crop Name" class="input" name="crop" required>
+    <span class="icon-error">
+      <img src="https://raw.githubusercontent.com/davidsonaguiar/frontendmentor/main/Base%20apparel%20coming%20soon/images/icon-error.svg" alt="" class="error-icon">
+    </span>
+    <button type="submit" class="button">
+      <span class="hidden-acs">
+        Notify Me
+      </span>
+      <img src="https://raw.githubusercontent.com/davidsonaguiar/frontendmentor/main/Base%20apparel%20coming%20soon/images/icon-arrow.svg" alt="" class="button-icon">
+    </button>
+  </form>
+  <span class="error">Please provide a valid name of the crop</span>
+</main>
+<!-- partial -->
+  
+</body>
+</html>
